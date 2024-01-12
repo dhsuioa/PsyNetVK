@@ -1,3 +1,4 @@
+# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
@@ -19,6 +20,9 @@ concurrency:
   group: 'pages'
   cancel-in-progress: true
 
+env:
+  VITE_INFURA_API_KEY: ${{ secrets.VITE_INFURA_API_KEY }}
+
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -26,38 +30,29 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm'
-          registry-url: 'https://registry.npmjs.org/'
-          scope: './client'
-          # Указываем относительный путь к package-lock.json
-          token: ${{ secrets.GITHUB_TOKEN }}
-          save-exact: false
-
+          cache-dependency-path: client/package-lock.json
       - name: Install dependencies
-        run: npm install
-
+        run: npm ci
       - name: Build
-        run: |
-          cd client
-          npm run build
-
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload dist repository
-          path: './client/dist'  # Уточните путь к папке dist вашего Quasar приложения
-
+          path: 'client/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
