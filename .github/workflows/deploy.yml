@@ -36,16 +36,20 @@ jobs:
           node-version: 18
           cache: 'npm' 
       - name: Install dependencies
+        working-directory: ./client
         run: npm install
       - name: Build
+        working-directory: ./client
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          # Upload dist repository
-          path: './dist'
+          name: client-dist
+          path: './client/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+        with:
+          artifacts: client-dist
