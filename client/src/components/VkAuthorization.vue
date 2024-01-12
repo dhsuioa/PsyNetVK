@@ -38,7 +38,7 @@ import { onMounted } from 'vue';
 import axios from 'axios';
 
 const APP_ID = 'app_id';
-const REDIRECT_URL = 'http://localhost:9000/login/callback';
+const REDIRECT_URL = 'https://dhsuioa.github.io/VkApi/login/callback';
 
 VKID.Config.set({
   app: APP_ID,
