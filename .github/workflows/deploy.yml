@@ -29,6 +29,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        
+      - name: Test
+        run: cd client
 
       - name: Set up Node
         uses: actions/setup-node@v3
@@ -37,9 +40,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          cd client
-          npm install
+        run: npm install
 
       - name: Build
         run: |
