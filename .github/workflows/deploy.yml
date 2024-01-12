@@ -35,10 +35,10 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
-          working-directory: ./client
       - name: Install dependencies
-        working-directory: ./client
-        run: npm install
+        run: |
+            cd ./client
+            npm install
       - name: Build
         working-directory: ./client
         run: npm run build
