@@ -36,8 +36,8 @@ async def authorization(request: Request, payload: str = Body(...)):
     # Получаем Silent token из payload
     silent_token = payload_dict.get("token")
 
-    service_token = "your_service_token"
-    
+    # service_token = "your_service_token"
+    service_token = "e920735be920735be920735bceea36b2d9ee920e920735b8cad3f590c7b819bd3bebbbc"
 
      # Выполняем обмен Silent token на Access token
     exchange_url = "https://api.vk.com/method/auth.exchangeSilentAuthToken"
@@ -59,7 +59,7 @@ async def authorization(request: Request, payload: str = Body(...)):
     user_info_params = {
         "v": "5.199",
         "access_token": access_token,
-        # "fields": "status" 
+        "fields": "sex, status" 
     }
     
     user_info_response = requests.post(user_info_url, data=user_info_params)

@@ -34,11 +34,10 @@
   
   <script setup>
 import * as VKID from '@vkid/sdk';
-import { onMounted } from 'vue';
-import axios from 'axios';
 
-const APP_ID = 'app_id';
-const REDIRECT_URL = 'https://dhsuioa.github.io/VkApi/login/callback';
+
+const APP_ID = 51822978;
+const REDIRECT_URL = 'http://localhost:9000/login/callback';
 
 VKID.Config.set({
   app: APP_ID,
@@ -49,25 +48,7 @@ const handleClick = async () => {
   VKID.Auth.login();
 };
 
-// обработка параметров после загрузки компонента
-onMounted(() => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const payload = urlParams.get('payload');
 
-  if (payload) {
-    // отправляем payload на бэкенд
-    sendPayloadToBackend(payload);
-  }
-});
-
-const sendPayloadToBackend = async (payload) => {
-  try {
-    const response = await axios.post('http://localhost:8000/callback', payload );
-    console.log('Backend response:', response.data);
-  } catch (error) {
-    console.error('Error sending payload to backend:', error);
-  }
-};
   </script>
   
   <style scoped>
