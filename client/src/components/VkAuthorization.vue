@@ -37,7 +37,7 @@ import * as VKID from '@vkid/sdk';
 
 
 const APP_ID = 51822978;
-const REDIRECT_URL = 'http://localhost:9000/login/callback';
+const REDIRECT_URL = 'http://localhost:9000/#/VkApi/login/callback';
 
 VKID.Config.set({
   app: APP_ID,
