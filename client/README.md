@@ -1,4 +1,4 @@
-# VkApi (vk)
+# PsyNetVK
 
 A Quasar Project
 

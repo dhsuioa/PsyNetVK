@@ -2,7 +2,7 @@
   "name": "vk",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "VkApi",
+  "productName": "PsyNetVK",
   "author": "dhsuioa <a27litvinenko@gmail.com>",
   "private": true,
   "scripts": {
