@@ -4,15 +4,14 @@
     <q-header style="background-color: #FFFFFF">
       <q-toolbar>
         <q-toolbar-title class="row">
-          <span :class="`text-accent`">PsyNet</span>
-          <span :class="`text-primary`">Vk</span>
+          <!-- <span :class="`text-accent`">PsyNet</span>
+          <span :class="`text-primary`">Vk</span> -->
           <div class="q-gutter-sm q-ml-sm" v-for="link in links">
             <q-btn
               :label="link.title"
               :to="link.to"
               color="dark"
               flat
-              rounded
             />
           </div>
         </q-toolbar-title>

@@ -1,17 +1,14 @@
 <template>
     <q-page class="flex items-center justify-center column">
         <div>
-            <h2 class="text-center">PsyNetVK</h2>
-            <information/>
-            <!-- <h2 class="text-center">MindMapVK</h2>
-            <h2 class="text-center">VKMentalInsight</h2> -->
+            <HomeComponent/>
         </div>
     </q-page>
 </template>
   
 <script setup>
 import { onMounted } from 'vue'
-import Information from 'src/components/Information.vue'
+import HomeComponent from 'src/components/HomeComponent.vue'
 import { sendPayloadToBackend} from 'src/api/analyses.ts'
 
 // обработка параметров после загрузки компонента
